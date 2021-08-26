@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: imageReader
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: user
+Implementation-Vendor-Id: com.utilities
+Build-Jdk: 1.8.0_291
+Implementation-URL: https://spring.io/projects/spring-boot/imageReader
+Created-By: Maven Integration for Eclipse
+
