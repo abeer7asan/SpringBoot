@@ -1,33 +1,32 @@
 package org.payroll.loan.entities;
 import javax.persistence.*;
-import javax.persistence.Temporal; 
-import javax.persistence.TemporalType; 
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 
 @Entity
-@Table(name = "PYST_PAYMENT_METHOD")
+@Table(name = "SYST_COMPANIES")
 
 
-public class PystPaymentMethod {
+public class SystCompanies {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-@Column( name = "ID", nullable = true)
+@Column( name = "ID")
 private BigDecimal id;
 
-@Column( name = "ACCOUNT")
-private BigDecimal account;
+@ManyToOne
+private SystAccounts account;
 
 @Column( name = "COMP_ID")
 private BigDecimal compId;
 
-@Column( name = "PAYMENT_METHOD_DESC_M")
-private String paymentMethodDescM;
+@Column( name = "COMPANY_DESC_M")
+private String companyDescM;
 
-@Column( name = "PAYMENT_METHOD_DESC_O")
-private String paymentMethodDescO;
+@Column( name = "COMPANY_DESC_O")
+private String companyDescO;
 
 @Column( name = "IS_VALID")
 private String isValid;
@@ -35,27 +34,27 @@ private String isValid;
 @Column( name = "CREATED_BY")
 private BigDecimal createdBy;
 
-@Column( name = "CREATED_DATE", nullable = true)
+@Column( name = "CREATED_DATE")
 @Temporal(TemporalType.DATE)
 private Date createdDate;
 
-@Column( name = "UPDATED_BY", nullable = true)
+@Column( name = "UPDATED_BY")
 private BigDecimal updatedBy;
 
-@Column( name = "UPDATED_DATE", nullable = true)
+@Column( name = "UPDATED_DATE")
 @Temporal(TemporalType.DATE)
 private Date updatedDate;
 
-@Column( name = "DELETED_BY", nullable = true)
+@Column( name = "DELETED_BY")
 private BigDecimal deletedBy;
 
-@Column( name = "DELETED_DATE", nullable = true)
+@Column( name = "DELETED_DATE")
 private BigDecimal deletedDate;
 
-@Column( name = "IS_DELETED", nullable = true)
+@Column( name = "IS_DELETED")
 private String isDeleted;
 
-@Column( name = "CODE", nullable = true)
+@Column( name = "CODE")
 private String code;
 
 public BigDecimal getId() {
@@ -68,12 +67,12 @@ this.id = id;
 }
 
 
-public BigDecimal getAccount() {
+public SystAccounts getAccount() {
 return this.account;
 }
 
 
-public void setAccount(BigDecimal account) {
+public void setAccount(SystAccounts account) {
 this.account = account;
 }
 
@@ -88,23 +87,23 @@ this.compId = compId;
 }
 
 
-public String getPaymentMethodDescM() {
-return this.paymentMethodDescM;
+public String getCompanyDescM() {
+return this.companyDescM;
 }
 
 
-public void setPaymentMethodDescM(String paymentMethodDescM) {
-this.paymentMethodDescM = paymentMethodDescM;
+public void setCompanyDescM(String companyDescM) {
+this.companyDescM = companyDescM;
 }
 
 
-public String getPaymentMethodDescO() {
-return this.paymentMethodDescO;
+public String getCompanyDescO() {
+return this.companyDescO;
 }
 
 
-public void setPaymentMethodDescO(String paymentMethodDescO) {
-this.paymentMethodDescO = paymentMethodDescO;
+public void setCompanyDescO(String companyDescO) {
+this.companyDescO = companyDescO;
 }
 
 

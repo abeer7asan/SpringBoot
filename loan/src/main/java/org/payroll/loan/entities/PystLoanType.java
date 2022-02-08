@@ -1,7 +1,6 @@
 package org.payroll.loan.entities;
 import javax.persistence.*;
-import javax.persistence.Temporal; 
-import javax.persistence.TemporalType; 
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,6 +12,7 @@ import java.util.Date;
 public class PystLoanType {
 
 @Id
+@GeneratedValue(strategy = GenerationType.AUTO)
 @Column( name = "ID")
 private BigDecimal id;
 

@@ -1,7 +1,6 @@
 package org.payroll.loan.entities;
 import javax.persistence.*;
-import javax.persistence.Temporal; 
-import javax.persistence.TemporalType; 
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,20 +12,21 @@ import java.util.Date;
 public class PytrLoanTransaction {
 
 @Id
+@GeneratedValue(strategy = GenerationType.AUTO)
 @Column( name = "ID")
 private BigDecimal id;
 
-@Column( name = "ACCOUNT")
-private BigDecimal account;
+@ManyToOne
+private SystAccounts account;
 
-@Column( name = "COMP_ID")
-private BigDecimal compId;
+@ManyToOne
+private SystCompanies compId;
 
-@Column( name = "PROFILE_ID")
-private BigDecimal profileId;
+@ManyToOne
+private PrsPersonProfile profile;
 
-@Column( name = "LOAN_TYPE_ID")
-private BigDecimal loanTypeId;
+@ManyToOne
+private PystLoanType loanType;
 
 @Column( name = "REQUEST_DATE")
 @Temporal(TemporalType.DATE)
@@ -42,8 +42,8 @@ private BigDecimal workflowId;
 @Column( name = "LOAN_AMOUNT")
 private BigDecimal loanAmount;
 
-@Column( name = "CURRENCY_ID")
-private BigDecimal currencyId;
+@ManyToOne
+private PystCurrencyType currency;
 
 @Column( name = "PERIODS_NO")
 private BigDecimal periodsNo;
@@ -62,8 +62,8 @@ private Date schedualStartDate;
 @Temporal(TemporalType.DATE)
 private Date scheduleEndDate;
 
-@Column( name = "PAYMENT_METHOD_ID")
-private BigDecimal paymentMethodId;
+@ManyToOne
+private PystPaymentMethod paymentMethod;
 
 @Column( name = "REMARKS")
 private String remarks;
@@ -107,43 +107,43 @@ this.id = id;
 }
 
 
-public BigDecimal getAccount() {
+public SystAccounts getAccount() {
 return this.account;
 }
 
 
-public void setAccount(BigDecimal account) {
+public void setAccount(SystAccounts account) {
 this.account = account;
 }
 
 
-public BigDecimal getCompId() {
+public SystCompanies getCompId() {
 return this.compId;
 }
 
 
-public void setCompId(BigDecimal compId) {
+public void setCompId(SystCompanies compId) {
 this.compId = compId;
 }
 
 
-public BigDecimal getProfileId() {
-return this.profileId;
+public PrsPersonProfile getProfileId() {
+return this.profile;
 }
 
 
-public void setProfileId(BigDecimal profileId) {
-this.profileId = profileId;
+public void setProfileId(PrsPersonProfile profileId) {
+this.profile = profileId;
 }
 
 
-public BigDecimal getLoanTypeId() {
-return this.loanTypeId;
+public PystLoanType getLoanTypeId() {
+return this.loanType;
 }
 
 
-public void setLoanTypeId(BigDecimal loanTypeId) {
-this.loanTypeId = loanTypeId;
+public void setLoanTypeId(PystLoanType loanTypeId) {
+this.loanType = loanTypeId;
 }
 
 
@@ -187,13 +187,13 @@ this.loanAmount = loanAmount;
 }
 
 
-public BigDecimal getCurrencyId() {
-return this.currencyId;
+public PystCurrencyType getCurrencyId() {
+return this.currency;
 }
 
 
-public void setCurrencyId(BigDecimal currencyId) {
-this.currencyId = currencyId;
+public void setCurrencyId(PystCurrencyType currencyId) {
+this.currency = currencyId;
 }
 
 
@@ -247,13 +247,13 @@ this.scheduleEndDate = scheduleEndDate;
 }
 
 
-public BigDecimal getPaymentMethodId() {
-return this.paymentMethodId;
+public PystPaymentMethod getPaymentMethodId() {
+return this.paymentMethod;
 }
 
 
-public void setPaymentMethodId(BigDecimal paymentMethodId) {
-this.paymentMethodId = paymentMethodId;
+public void setPaymentMethodId(PystPaymentMethod paymentMethodId) {
+this.paymentMethod = paymentMethodId;
 }
 
 
